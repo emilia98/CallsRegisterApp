@@ -1,0 +1,75 @@
+{
+    "calls": [
+        {
+            "name": "Martin",
+            "source": "mobile",
+            "date": "yesterday",
+            "count": 2,
+            "isMissed": false
+        },
+        {
+            "name": "Refik",
+            "source": "mobile",
+            "date": "yesterday",
+            "count": 1,
+            "isMissed": false
+        },
+        {
+            "name": "Martin",
+            "source": "mobile",
+            "date": "yesterday",
+            "count": 1,
+            "isMissed": false
+        },
+        {
+            "name": "Galateja",
+            "source": "mobile",
+            "date": "yesterday",
+            "count": 1,
+            "isMissed": true
+        },
+        {
+            "name": "Martin",
+            "source": "mobile",
+            "date": "yesterday",
+            "count": 2,
+            "isMissed": false
+        },
+        {
+            "name": "Refik",
+            "source": "mobile",
+            "date": "yesterday",
+            "count": 1,
+            "isMissed": false
+        },
+        {
+            "name": "Refik",
+            "source": "mobile",
+            "date": "wednesday",
+            "count": 1,
+            "isMissed": false
+        },
+        {
+            "name": "Petya",
+            "source": "mobile",
+            "date": "wednesday",
+            "count": 1,
+            "isMissed": false
+        },
+        {
+            "name": "Martin",
+            "source": "FaceTime Audio",
+            "date": "wednesday",
+            "count": 3,
+            "isMissed": false
+            
+        },
+        {
+            "name": "Martin",
+            "source": "FaceTime Audio",
+            "date": "wednesday",
+            "count": 1,
+            "isMissed": true
+        },
+    ]
+}
