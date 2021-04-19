@@ -93,6 +93,11 @@ class CallsViewController : UITableViewController {
             call = callStore.getMissedCall(indexPath.row)
         }
         
+        if !call.isOutcome {
+            cell.outcomeImage.isHidden = true
+            // cell.outcomeImage.
+        }
+        
         cell.dateLabel.text = call.date.capitalized
         cell.nameLabel.text = call.name
         cell.sourceLabel.text = call.source

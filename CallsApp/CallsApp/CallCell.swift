@@ -12,4 +12,5 @@ class CallCell: UITableViewCell {
     @IBOutlet var typeImage: UIImageView!
     @IBOutlet var sourceLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var outcomeImage: UIImageView!
 }

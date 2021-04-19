@@ -261,6 +261,7 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="kQl-VS-6Bx" id="xG2-Eu-1Iy"/>
                                     <outlet property="nameLabel" destination="3a1-67-6HH" id="JAF-TX-qth"/>
+                                    <outlet property="outcomeImage" destination="8B2-oE-gcm" id="A8t-Q1-eVH"/>
                                     <outlet property="sourceLabel" destination="qS0-41-bvr" id="IPX-T1-d3j"/>
                                     <outlet property="typeImage" destination="8B2-oE-gcm" id="Bb3-Vc-lgz"/>
                                 </connections>

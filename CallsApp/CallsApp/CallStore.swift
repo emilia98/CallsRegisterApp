@@ -13,6 +13,7 @@ class Call: Codable {
     var date: String
     var count: Int
     var isMissed: Bool
+    var isOutcome: Bool
 }
 
 class Calls: Decodable {

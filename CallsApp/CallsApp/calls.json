@@ -5,71 +5,80 @@
             "source": "mobile",
             "date": "yesterday",
             "count": 2,
-            "isMissed": false
+            "isMissed": false,
+            "isOutcome": true
         },
         {
             "name": "Refik",
             "source": "mobile",
             "date": "yesterday",
             "count": 1,
-            "isMissed": false
+            "isMissed": false,
+            "isOutcome": true
         },
         {
             "name": "Martin",
             "source": "mobile",
             "date": "yesterday",
             "count": 1,
-            "isMissed": false
+            "isMissed": false,
+            "isOutcome": false
         },
         {
             "name": "Galateja",
             "source": "mobile",
             "date": "yesterday",
             "count": 1,
-            "isMissed": true
+            "isMissed": true,
+            "isOutcome": false
         },
         {
             "name": "Martin",
             "source": "mobile",
             "date": "yesterday",
             "count": 2,
-            "isMissed": false
+            "isMissed": false,
+            "isOutcome": true
         },
         {
             "name": "Refik",
             "source": "mobile",
             "date": "yesterday",
             "count": 1,
-            "isMissed": false
+            "isMissed": false,
+            "isOutcome": true
         },
         {
             "name": "Refik",
             "source": "mobile",
             "date": "wednesday",
             "count": 1,
-            "isMissed": false
+            "isMissed": false,
+            "isOutcome": false
         },
         {
             "name": "Petya",
             "source": "mobile",
             "date": "wednesday",
             "count": 1,
-            "isMissed": false
+            "isMissed": false,
+            "isOutcome": true
         },
         {
             "name": "Martin",
             "source": "FaceTime Audio",
             "date": "wednesday",
             "count": 3,
-            "isMissed": false
-            
+            "isMissed": false,
+            "isOutcome": false
         },
         {
             "name": "Martin",
             "source": "FaceTime Audio",
             "date": "wednesday",
             "count": 1,
-            "isMissed": true
+            "isMissed": true,
+            "isOutcome": false
         },
     ]
 }
