@@ -18,9 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        let callStore = CallStore()
-        let callsController = window!.rootViewController as! CallsViewController
-        callsController.callStore = callStore
+        print(window!.rootViewController, CallsViewController.self)
+        /*
+        if window!.rootViewController === CallsViewController.self {
+            let callStore = CallStore()
+            let callsController = window!.rootViewController as! CallsViewController
+            callsController.callStore = callStore
+        }
+        */
+        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

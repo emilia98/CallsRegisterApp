@@ -32,6 +32,10 @@ class CallsViewController : UITableViewController {
         ("Missed", .missed)
     ]
     
+    override func viewWillAppear(_ animated: Bool) {
+        callStore = CallStore()
+    }
+    
     /*
     override func loadView() {
         
