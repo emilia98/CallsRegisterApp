@@ -60,7 +60,9 @@
                             <constraint firstItem="fdd-ml-Lfe" firstAttribute="centerX" secondItem="Y8e-nh-mei" secondAttribute="centerX" id="zig-uz-VEh"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Keypad" image="circle.grid.3x3" catalog="system" id="9Lr-Rb-1na"/>
+                    <tabBarItem key="tabBarItem" title="Keypad" id="9Lr-Rb-1na">
+                        <imageReference key="image" image="circle.grid.3x3.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWA-gQ-7tQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -99,6 +101,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Voicemail" id="9R8-8b-JXv">
                         <imageReference key="image" image="recordingtape" catalog="system" symbolScale="large"/>
+                        <imageReference key="largeContentSizeImage" image="recordingtape" catalog="system" symbolScale="large"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -317,7 +321,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="circle.grid.3x3" catalog="system" width="128" height="110"/>
+        <image name="circle.grid.3x3.fill" catalog="system" width="128" height="112"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="phone.fill.arrow.up.right" catalog="system" width="128" height="115"/>

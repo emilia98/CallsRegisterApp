@@ -28,14 +28,23 @@ class CallStore {
         
         if let data = jsonData {
             calls = parseJSON(jsonData: data)
-        }    }
+        }
+    }
     
     var callsCount: Int {
         return calls.count
     }
     
+    var missedCallsCount: Int {
+        return calls.filter { $0.isMissed }.count
+    }
+    
     func getCall(_ row: Int) -> Call {
         return calls[row]
+    }
+    
+    func getMissedCall(_ row: Int) -> Call {
+        return calls.filter { $0.isMissed }[row]
     }
     
     private func readLocalFile(forName name: String) -> Data? {

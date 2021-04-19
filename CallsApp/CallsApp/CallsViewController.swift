@@ -26,19 +26,45 @@ class CallsViewController : UITableViewController {
     var callStore: CallStore!
     @IBOutlet var headerView: UIView!
     @IBOutlet var segmentedControl: UISegmentedControl!
+    private var callType = CallType.all
     
     let segmentItems: [(name: String, callType: CallType)] = [
         ("All", .all),
         ("Missed", .missed)
     ]
     
-    override func viewWillAppear(_ animated: Bool) {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         callStore = CallStore()
     }
     
+    override func viewDidLoad() {
+        for (seg, item) in segmentItems.enumerated() {
+            segmentedControl.setTitle(item.name, forSegmentAt: seg)
+        }
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self,
+                                   action: #selector(callTypeChanged(_:)),
+                                   for: .valueChanged)
+        /*
+        print(segmentedControl)
+        segmentedControl.setTitle(segmentItems[0].name, forSegmentAt: 0)
+        segmentedControl.setTitle(, forSegmentAt: <#T##Int#>)
+       // segmentedControl.ites = UISegmentedControl(items: segmentItems.map { $0.name })
+ */
+    }
+    
+    /*
+    override func viewWillAppear(_ animated: Bool) {
+        
+        // print(segmentedControl)
+        // segmentedControl = UISegmentedControl(items: segmentItems.map { $0.name })
+    } */
+    
     /*
     override func loadView() {
-        
+        /*
+        // print(segmentedControl)
          // headerView = UIView()
          // tableView.addSubview(headerView)
         // print(segmentedControl)
@@ -50,25 +76,27 @@ class CallsViewController : UITableViewController {
                                    action: #selector(callTypeChanged(_:)),
                                    for: .valueChanged)
          headerView.addSubview(segmentedControl)
-        
+        */
     } */
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return callStore.callsCount
+        return callType == CallType.all ?  callStore.callsCount : callStore.missedCallsCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->  UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CallCell", for: indexPath) as! CallCell
-        let call = callStore.getCall(indexPath.row)
+        var call: Call
+        
+        if callType == .all {
+            call = callStore.getCall(indexPath.row)
+        } else {
+            call = callStore.getMissedCall(indexPath.row)
+        }
         
         cell.dateLabel.text = call.date.capitalized
-       // cell.dateLabel.text = call.date
         cell.nameLabel.text = call.name
         cell.sourceLabel.text = call.source
-        
-        if call.isMissed {
-            cell.nameLabel.textColor = UIColor.red
-        }
+        cell.nameLabel.textColor = call.isMissed ? UIColor.red : UIColor.black
         
         if call.count > 1 {
             cell.nameLabel.text! += " (\(call.count))"
@@ -80,8 +108,8 @@ class CallsViewController : UITableViewController {
     @objc
     func callTypeChanged(_ segControl: UISegmentedControl) {
         if segmentItems.indices ~= segControl.selectedSegmentIndex {
-            // some code here
-            // mapView.mapType = segmentItems[segControl.selectedSegmentIndex].mapType
+            callType = callType == .all ? .missed : .all
+            tableView.reloadData()
         }
     }
 }
