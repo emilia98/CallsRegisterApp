@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        print(window!.rootViewController, CallsViewController.self)
+        // print(window!.rootViewController, CallsViewController.self)
         /*
         if window!.rootViewController === CallsViewController.self {
             let callStore = CallStore()

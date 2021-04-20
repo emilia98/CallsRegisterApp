@@ -20,7 +20,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="gUq-sx-DBb" kind="relationship" relationship="viewControllers" id="mmk-S8-DrS"/>
-                        <segue destination="kUK-xy-wAH" kind="relationship" relationship="viewControllers" id="chF-HB-ruq"/>
+                        <segue destination="GHl-VK-WhS" kind="relationship" relationship="viewControllers" id="chF-HB-ruq"/>
                         <segue destination="X7n-QA-JcG" kind="relationship" relationship="viewControllers" id="McI-0K-sA1"/>
                         <segue destination="Xhf-dB-StQ" kind="relationship" relationship="viewControllers" id="gJL-ZK-VWS"/>
                         <segue destination="Qas-VN-eN6" kind="relationship" relationship="viewControllers" id="Rlt-wm-bVQ"/>
@@ -154,61 +154,14 @@
         <!--Recents-->
         <scene sceneID="kSe-zz-RYk">
             <objects>
-                <tableViewController id="kUK-xy-wAH" customClass="CallsViewController" customModule="CallsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Recents" id="kUK-xy-wAH" customClass="CallsViewController" customModule="CallsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MNm-nz-FAW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="B30-o2-jxU">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LPE-W1-0Wy">
-                                    <rect key="frame" x="143.5" y="10" width="127" height="32"/>
-                                    <segments>
-                                        <segment title="All"/>
-                                        <segment title="Missed"/>
-                                    </segments>
-                                </segmentedControl>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naZ-pv-WLv">
-                                    <rect key="frame" x="372" y="7.5" width="34" height="36"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                    <state key="normal" title="Edit"/>
-                                </button>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R29-Qv-LPW">
-                                    <rect key="frame" x="20" y="53.5" width="374" height="44.5"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tc-CQ-Gbc">
-                                            <rect key="frame" x="0.0" y="0.0" width="133.5" height="42"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstItem="4tc-CQ-Gbc" firstAttribute="leading" secondItem="R29-Qv-LPW" secondAttribute="leading" id="Crs-PT-vtL"/>
-                                        <constraint firstItem="4tc-CQ-Gbc" firstAttribute="top" secondItem="R29-Qv-LPW" secondAttribute="top" id="eLp-BZ-Q5O"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="trailing" secondItem="R29-Qv-LPW" secondAttribute="trailing" constant="20" id="28I-Pi-E75"/>
-                                <constraint firstItem="LPE-W1-0Wy" firstAttribute="top" secondItem="B30-o2-jxU" secondAttribute="top" constant="10" id="616-Kn-sgX"/>
-                                <constraint firstItem="R29-Qv-LPW" firstAttribute="centerX" secondItem="B30-o2-jxU" secondAttribute="centerX" id="KbT-wl-iad"/>
-                                <constraint firstAttribute="trailing" secondItem="naZ-pv-WLv" secondAttribute="trailing" constant="8" id="R53-CV-OUd"/>
-                                <constraint firstItem="R29-Qv-LPW" firstAttribute="top" secondItem="naZ-pv-WLv" secondAttribute="bottom" constant="10" id="Xtl-yd-px9"/>
-                                <constraint firstItem="naZ-pv-WLv" firstAttribute="centerY" secondItem="LPE-W1-0Wy" secondAttribute="centerY" id="YJn-5L-R7V"/>
-                                <constraint firstAttribute="bottom" secondItem="R29-Qv-LPW" secondAttribute="bottom" constant="10" id="egR-Wg-hw1"/>
-                                <constraint firstItem="R29-Qv-LPW" firstAttribute="leading" secondItem="B30-o2-jxU" secondAttribute="leading" constant="20" id="jhv-az-d26"/>
-                                <constraint firstItem="LPE-W1-0Wy" firstAttribute="centerX" secondItem="B30-o2-jxU" secondAttribute="centerX" id="mBd-LM-jus"/>
-                                <constraint firstAttribute="bottom" secondItem="R29-Qv-LPW" secondAttribute="bottom" constant="10" id="wpY-T7-hsb"/>
-                            </constraints>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CallCell" rowHeight="66" id="2Tk-tz-84Q" customClass="CallCell" customModule="CallsApp">
-                                <rect key="frame" x="0.0" y="136" width="414" height="66"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Tk-tz-84Q" id="e4k-m5-kGF">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
@@ -272,16 +225,34 @@
                             <outlet property="delegate" destination="kUK-xy-wAH" id="tby-we-p66"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Recents" image="clock.fill" catalog="system" selectedImage="clock.fill" id="FEe-gV-MPP"/>
+                    <tabBarItem key="tabBarItem" title="Recents" image="clock.fill" catalog="system" id="h3j-z2-wm4"/>
+                    <navigationItem key="navigationItem" id="HjM-zP-Vpy">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="LPE-W1-0Wy">
+                            <rect key="frame" x="143.5" y="6" width="127" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="All"/>
+                                <segment title="Missed"/>
+                            </segments>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="wcu-n4-kcb">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="naZ-pv-WLv">
+                                <rect key="frame" x="360" y="4" width="34" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Edit"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="headerView" destination="B30-o2-jxU" id="jA7-U5-0CT"/>
                         <outlet property="segmentedControl" destination="LPE-W1-0Wy" id="ADg-Gy-yAS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kB3-Xc-txZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="481" y="-202"/>
+            <point key="canvasLocation" x="2300" y="-202.23214285714286"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="UhA-Ub-aPH">
@@ -319,6 +290,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3f-cW-DV4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-768.11594202898561" y="-1020.5357142857142"/>
+        </scene>
+        <!--Recents-->
+        <scene sceneID="cf3-LO-FTQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GHl-VK-WhS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recents" image="clock.fill" catalog="system" selectedImage="clock.fill" id="FEe-gV-MPP"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zSo-74-xgD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kUK-xy-wAH" kind="relationship" relationship="rootViewController" id="HKZ-zc-DP4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hNA-Sj-M5z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="479.71014492753625" y="-202.23214285714286"/>
         </scene>
     </scenes>
     <resources>

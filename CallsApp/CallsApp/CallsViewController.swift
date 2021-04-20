@@ -33,12 +33,17 @@ class CallsViewController : UITableViewController {
         ("Missed", .missed)
     ]
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         callStore = CallStore()
+        navigationItem.rightBarButtonItem = editButtonItem
     }
     
     override func viewDidLoad() {
+        navigationController?.navigationBar.topItem?.title = "Recents"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationItem.largeTitleDisplayMode = .always
+        
         for (seg, item) in segmentItems.enumerated() {
             segmentedControl.setTitle(item.name, forSegmentAt: seg)
         }
