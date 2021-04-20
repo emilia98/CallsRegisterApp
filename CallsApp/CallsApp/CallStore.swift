@@ -47,4 +47,12 @@ class CallStore {
     func getMissedCall(_ row: Int) -> Call {
         return calls.filter { $0.isMissed }[row]
     }
+    
+    func clearAllCalls() {
+        calls = [Call]()
+    }
+    
+    func clearMissedCalls() {
+        calls.removeAll { $0.isMissed }
+    }
 }

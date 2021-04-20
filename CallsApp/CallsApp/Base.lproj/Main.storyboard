@@ -159,6 +159,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <inset key="separatorInset" minX="33" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CallCell" rowHeight="66" id="2Tk-tz-84Q" customClass="CallCell" customModule="CallsApp">
                                 <rect key="frame" x="0.0" y="28" width="414" height="66"/>
@@ -229,21 +230,13 @@
                     <navigationItem key="navigationItem" id="HjM-zP-Vpy">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="LPE-W1-0Wy">
-                            <rect key="frame" x="143.5" y="6" width="127" height="32"/>
+                            <rect key="frame" x="12" y="6" width="2" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="All"/>
                                 <segment title="Missed"/>
                             </segments>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="wcu-n4-kcb">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="naZ-pv-WLv">
-                                <rect key="frame" x="360" y="4" width="34" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Edit"/>
-                            </button>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

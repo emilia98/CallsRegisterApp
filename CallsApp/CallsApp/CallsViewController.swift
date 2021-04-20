@@ -22,16 +22,26 @@ class CallsViewController : UITableViewController {
         ("Missed", .missed)
     ]
     
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         callStore = CallStore()
-        navigationItem.rightBarButtonItem = editButtonItem
     }
     
     override func viewDidLoad() {
+        let leftNavigationItem = UIBarButtonItem()
+        leftNavigationItem.isEnabled = false
+        leftNavigationItem.target = self
+        leftNavigationItem.action = #selector(clearCalls(_:))
+        
+        navigationItem.leftBarButtonItem = leftNavigationItem
+        navigationItem.rightBarButtonItem = editButtonItem
+        
         navigationController?.navigationBar.topItem?.title = "Recents"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
+        
+        navigationController?.navigationBar.layoutMargins.left = 30
         
         for (seg, item) in segmentItems.enumerated() {
             segmentedControl.setTitle(item.name, forSegmentAt: seg)
@@ -40,6 +50,20 @@ class CallsViewController : UITableViewController {
         segmentedControl.addTarget(self,
                                    action: #selector(callTypeChanged(_:)),
                                    for: .valueChanged)
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        if (editing) {
+            navigationItem.leftBarButtonItem?.title = "Clear"
+            navigationItem.rightBarButtonItem?.title = "Done"
+            
+        } else {
+            navigationItem.leftBarButtonItem?.title = ""
+            navigationItem.rightBarButtonItem?.title = "Edit"
+        }
+        navigationItem.leftBarButtonItem?.isEnabled = editing
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,10 +80,7 @@ class CallsViewController : UITableViewController {
             call = callStore.getMissedCall(indexPath.row)
         }
         
-        if !call.isOutcome {
-            cell.outcomeImage.isHidden = true
-        }
-        
+        cell.outcomeImage.isHidden = !call.isOutcome
         cell.dateLabel.text = call.date.capitalized
         cell.nameLabel.text = call.name
         cell.sourceLabel.text = call.source
@@ -78,5 +99,17 @@ class CallsViewController : UITableViewController {
             callType = callType == .all ? .missed : .all
             tableView.reloadData()
         }
+    }
+    
+    @objc
+    func clearCalls(_ barButton: UIBarButtonItem) {
+        switch callType {
+        case .all:
+            callStore.clearAllCalls()
+        case .missed:
+            callStore.clearMissedCalls()
+        }
+        
+        tableView.reloadData()
     }
 }
