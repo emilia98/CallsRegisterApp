@@ -25,10 +25,10 @@ class CallStore {
     
     init() {
         calls = [Call]()
-        let jsonData = readLocalFile(forName: "calls")
+        let jsonData = JSONReader.readLocalFile(forName: "calls")
         
-        if let data = jsonData {
-            calls = parseJSON(jsonData: data)
+        if let data = jsonData, let result: Calls = JSONReader.parseJSON(jsonData: data) {
+            calls = result.calls
         }
     }
     
@@ -46,29 +46,5 @@ class CallStore {
     
     func getMissedCall(_ row: Int) -> Call {
         return calls.filter { $0.isMissed }[row]
-    }
-    
-    private func readLocalFile(forName name: String) -> Data? {
-        do {
-            if let bundlePath = Bundle.main.path(forResource: name, ofType: "json") {
-                if let jsonData = try String(contentsOfFile:
-                                                bundlePath).data(using: .utf8) {
-                    return jsonData
-                }
-            }
-        } catch {
-            print("Error occurred while reading file \(name).json")
-        }
-        return nil
-    }
-    
-    private func parseJSON(jsonData: Data) -> [Call] {
-        do {
-            let decodedData = try JSONDecoder().decode(Calls.self, from: jsonData)
-            return decodedData.calls
-        } catch {
-            print("Error occurred while decoding data: \(error)")
-            return [Call]()
-        }
     }
 }

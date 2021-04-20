@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		840B11B72629CEF5001AF265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B11B62629CEF5001AF265 /* AppDelegate.swift */; };
 		840B11B92629CEF5001AF265 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B11B82629CEF5001AF265 /* SceneDelegate.swift */; };
-		840B11BB2629CEF5001AF265 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B11BA2629CEF5001AF265 /* ViewController.swift */; };
 		840B11BE2629CEF5001AF265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840B11BC2629CEF5001AF265 /* Main.storyboard */; };
 		840B11C02629CEF8001AF265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 840B11BF2629CEF8001AF265 /* Assets.xcassets */; };
 		840B11C32629CEF8001AF265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840B11C12629CEF8001AF265 /* LaunchScreen.storyboard */; };
@@ -19,13 +18,14 @@
 		840B11D52629D799001AF265 /* CallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B11D42629D799001AF265 /* CallCell.swift */; };
 		840B11FB262EB993001AF265 /* ContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B11F9262EB993001AF265 /* ContactStore.swift */; };
 		840B11FC262EB993001AF265 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B11FA262EB993001AF265 /* ContactsViewController.swift */; };
+		840B1200262ECA78001AF265 /* contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = 840B11FF262ECA78001AF265 /* contacts.json */; };
+		840B1203262ECC74001AF265 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B1202262ECC74001AF265 /* JSONReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		840B11B32629CEF5001AF265 /* CallsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CallsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		840B11B62629CEF5001AF265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		840B11B82629CEF5001AF265 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		840B11BA2629CEF5001AF265 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		840B11BD2629CEF5001AF265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		840B11BF2629CEF8001AF265 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		840B11C22629CEF8001AF265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +36,8 @@
 		840B11D42629D799001AF265 /* CallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallCell.swift; sourceTree = "<group>"; };
 		840B11F9262EB993001AF265 /* ContactStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactStore.swift; sourceTree = "<group>"; };
 		840B11FA262EB993001AF265 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		840B11FF262ECA78001AF265 /* contacts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = contacts.json; sourceTree = "<group>"; };
+		840B1202262ECC74001AF265 /* JSONReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +74,6 @@
 				840B11FA262EB993001AF265 /* ContactsViewController.swift */,
 				840B11B62629CEF5001AF265 /* AppDelegate.swift */,
 				840B11B82629CEF5001AF265 /* SceneDelegate.swift */,
-				840B11BA2629CEF5001AF265 /* ViewController.swift */,
 				840B11BC2629CEF5001AF265 /* Main.storyboard */,
 				840B11BF2629CEF8001AF265 /* Assets.xcassets */,
 				840B11C12629CEF8001AF265 /* LaunchScreen.storyboard */,
@@ -81,6 +82,8 @@
 				840B11CE2629CF77001AF265 /* CallStore.swift */,
 				840B11D12629D100001AF265 /* calls.json */,
 				840B11D42629D799001AF265 /* CallCell.swift */,
+				840B11FF262ECA78001AF265 /* contacts.json */,
+				840B1202262ECC74001AF265 /* JSONReader.swift */,
 			);
 			path = CallsApp;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				840B11C32629CEF8001AF265 /* LaunchScreen.storyboard in Resources */,
+				840B1200262ECA78001AF265 /* contacts.json in Resources */,
 				840B11D22629D100001AF265 /* calls.json in Resources */,
 				840B11C02629CEF8001AF265 /* Assets.xcassets in Resources */,
 				840B11BE2629CEF5001AF265 /* Main.storyboard in Resources */,
@@ -156,7 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				840B11BB2629CEF5001AF265 /* ViewController.swift in Sources */,
+				840B1203262ECC74001AF265 /* JSONReader.swift in Sources */,
 				840B11D52629D799001AF265 /* CallCell.swift in Sources */,
 				840B11B72629CEF5001AF265 /* AppDelegate.swift in Sources */,
 				840B11CF2629CF77001AF265 /* CallStore.swift in Sources */,

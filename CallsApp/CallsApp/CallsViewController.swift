@@ -11,17 +11,6 @@ enum CallType {
     case all, missed
 }
 
-/*
-let segmentedControl = UISegmentedControl(items: segmentItems.map { $0.name })
-        
-        segmentedControl.backgroundColor = UIColor.systemBackground
-        segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        segmentedControl.addTarget(self,
-                                   action: #selector(mapTypeChanged(_:)),
-                                   for: .valueChanged)
-        view.addSubview(segmentedControl)
-*/
 class CallsViewController : UITableViewController {
     var callStore: CallStore!
     @IBOutlet var headerView: UIView!
@@ -51,38 +40,7 @@ class CallsViewController : UITableViewController {
         segmentedControl.addTarget(self,
                                    action: #selector(callTypeChanged(_:)),
                                    for: .valueChanged)
-        /*
-        print(segmentedControl)
-        segmentedControl.setTitle(segmentItems[0].name, forSegmentAt: 0)
-        segmentedControl.setTitle(, forSegmentAt: <#T##Int#>)
-       // segmentedControl.ites = UISegmentedControl(items: segmentItems.map { $0.name })
- */
     }
-    
-    /*
-    override func viewWillAppear(_ animated: Bool) {
-        
-        // print(segmentedControl)
-        // segmentedControl = UISegmentedControl(items: segmentItems.map { $0.name })
-    } */
-    
-    /*
-    override func loadView() {
-        /*
-        // print(segmentedControl)
-         // headerView = UIView()
-         // tableView.addSubview(headerView)
-        // print(segmentedControl)
-        segmentedControl = UISegmentedControl(items: segmentItems.map { $0.name })
-        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        segmentedControl.backgroundColor = UIColor.systemBackground
-        segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.addTarget(self,
-                                   action: #selector(callTypeChanged(_:)),
-                                   for: .valueChanged)
-         headerView.addSubview(segmentedControl)
-        */
-    } */
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return callType == CallType.all ?  callStore.callsCount : callStore.missedCallsCount
@@ -100,7 +58,6 @@ class CallsViewController : UITableViewController {
         
         if !call.isOutcome {
             cell.outcomeImage.isHidden = true
-            // cell.outcomeImage.
         }
         
         cell.dateLabel.text = call.date.capitalized
@@ -123,4 +80,3 @@ class CallsViewController : UITableViewController {
         }
     }
 }
-
