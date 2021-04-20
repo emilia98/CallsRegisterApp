@@ -17,6 +17,8 @@
 		840B11CF2629CF77001AF265 /* CallStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B11CE2629CF77001AF265 /* CallStore.swift */; };
 		840B11D22629D100001AF265 /* calls.json in Resources */ = {isa = PBXBuildFile; fileRef = 840B11D12629D100001AF265 /* calls.json */; };
 		840B11D52629D799001AF265 /* CallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B11D42629D799001AF265 /* CallCell.swift */; };
+		840B11FB262EB993001AF265 /* ContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B11F9262EB993001AF265 /* ContactStore.swift */; };
+		840B11FC262EB993001AF265 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B11FA262EB993001AF265 /* ContactsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		840B11CE2629CF77001AF265 /* CallStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallStore.swift; sourceTree = "<group>"; };
 		840B11D12629D100001AF265 /* calls.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = calls.json; sourceTree = "<group>"; };
 		840B11D42629D799001AF265 /* CallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallCell.swift; sourceTree = "<group>"; };
+		840B11F9262EB993001AF265 /* ContactStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactStore.swift; sourceTree = "<group>"; };
+		840B11FA262EB993001AF265 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 		840B11B52629CEF5001AF265 /* CallsApp */ = {
 			isa = PBXGroup;
 			children = (
+				840B11F9262EB993001AF265 /* ContactStore.swift */,
+				840B11FA262EB993001AF265 /* ContactsViewController.swift */,
 				840B11B62629CEF5001AF265 /* AppDelegate.swift */,
 				840B11B82629CEF5001AF265 /* SceneDelegate.swift */,
 				840B11BA2629CEF5001AF265 /* ViewController.swift */,
@@ -155,6 +161,8 @@
 				840B11B72629CEF5001AF265 /* AppDelegate.swift in Sources */,
 				840B11CF2629CF77001AF265 /* CallStore.swift in Sources */,
 				840B11CC2629CF3E001AF265 /* CallsViewController.swift in Sources */,
+				840B11FC262EB993001AF265 /* ContactsViewController.swift in Sources */,
+				840B11FB262EB993001AF265 /* ContactStore.swift in Sources */,
 				840B11B92629CEF5001AF265 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
