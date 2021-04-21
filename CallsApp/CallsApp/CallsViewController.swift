@@ -69,6 +69,23 @@ class CallsViewController : UITableViewController {
         navigationItem.leftBarButtonItem?.isEnabled = editing
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            var call: Call? = nil
+            switch callType {
+            case .all:
+                call = callStore.getCall(indexPath.row)
+            case .missed:
+                call = callStore.getMissedCall(indexPath.row)
+            }
+            
+            if let _ = call {
+                callStore.removeCall(call!)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var callsCount: Int
         switch callType {

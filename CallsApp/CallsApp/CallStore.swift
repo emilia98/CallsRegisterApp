@@ -7,13 +7,19 @@
 
 import Foundation
 
-class Call: Codable {
+class Call: Codable, Equatable {
     var name: String
     var source: String
     var date: String
     var count: Int
     var isMissed: Bool
     var isOutcome: Bool
+    
+    static func ==(lhs: Call, rhs: Call) -> Bool {
+        return lhs.name == rhs.name && lhs.source == rhs.source
+            && lhs.date == rhs.date && lhs.count == rhs.count
+            && lhs.isMissed == rhs.isMissed && lhs.isOutcome == rhs.isOutcome
+    }
 }
 
 class Calls: Decodable {
@@ -55,4 +61,15 @@ class CallStore {
     func clearMissedCalls() {
         calls.removeAll { $0.isMissed }
     }
+    
+    func removeCall(_ call: Call) {
+        if let index = calls.firstIndex(of: call) {
+            calls.remove(at: index)
+        }
+    }
+    
+    /*
+    func removeMissedCall(_ call: Call) {
+        calls.re
+    } */
 }
