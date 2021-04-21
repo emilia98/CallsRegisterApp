@@ -50,6 +50,9 @@ class CallsViewController : UITableViewController {
         segmentedControl.addTarget(self,
                                    action: #selector(callTypeChanged(_:)),
                                    for: .valueChanged)
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 65
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -67,7 +70,25 @@ class CallsViewController : UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return callType == CallType.all ?  callStore.callsCount : callStore.missedCallsCount
+        var callsCount: Int
+        switch callType {
+        case .all:
+            callsCount = callStore.callsCount
+            if callsCount == 0 {
+                setEmptyMessageView("No calls to show")
+            }
+        case .missed:
+            callsCount = callStore.missedCallsCount
+            if callsCount == 0 {
+                setEmptyMessageView("No missed calls to show")
+            }
+        }
+        
+        if callsCount > 0 {
+            restoreTableView()
+        }
+        
+        return callsCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->  UITableViewCell {
@@ -91,6 +112,26 @@ class CallsViewController : UITableViewController {
         }
         
         return cell
+    }
+    
+    private func setEmptyMessageView(_ message: String) {
+        let frame = CGRect(x: 0, y: 0,
+                           width: tableView.bounds.size.width,
+                           height: tableView.bounds.size.height)
+        let messageLabel = UILabel(frame: frame)
+        messageLabel.text = message
+        messageLabel.textColor = UIColor.black
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        messageLabel.font = UIFont.systemFont(ofSize: 36, weight: .bold)
+        
+        tableView.backgroundView = messageLabel
+        tableView.separatorStyle = .none
+    }
+    
+    private func restoreTableView() {
+        tableView.backgroundView = nil
+        tableView.separatorStyle = .singleLine
     }
     
     @objc
