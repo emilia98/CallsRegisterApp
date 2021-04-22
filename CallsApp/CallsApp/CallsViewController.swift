@@ -22,7 +22,6 @@ class CallsViewController : UITableViewController {
         ("Missed", .missed)
     ]
     
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         callStore = CallStore()
@@ -51,8 +50,10 @@ class CallsViewController : UITableViewController {
                                    action: #selector(callTypeChanged(_:)),
                                    for: .valueChanged)
         
+        /*
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 65
+ */
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -119,7 +120,7 @@ class CallsViewController : UITableViewController {
         }
         
         cell.outcomeImage.isHidden = !call.isOutcome
-        cell.dateLabel.text = call.date.capitalized
+        cell.dateLabel.text = CallDateFormat(call.date).formatDate()
         cell.nameLabel.text = call.name
         cell.sourceLabel.text = call.source
         cell.nameLabel.textColor = call.isMissed ? UIColor.red : UIColor.black

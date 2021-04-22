@@ -67,9 +67,4 @@ class CallStore {
             calls.remove(at: index)
         }
     }
-    
-    /*
-    func removeMissedCall(_ call: Call) {
-        calls.re
-    } */
 }

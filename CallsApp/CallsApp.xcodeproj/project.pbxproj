@@ -20,6 +20,7 @@
 		840B11FC262EB993001AF265 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B11FA262EB993001AF265 /* ContactsViewController.swift */; };
 		840B1200262ECA78001AF265 /* contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = 840B11FF262ECA78001AF265 /* contacts.json */; };
 		840B1203262ECC74001AF265 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B1202262ECC74001AF265 /* JSONReader.swift */; };
+		840B12082631635D001AF265 /* CallDateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B12072631635D001AF265 /* CallDateFormat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		840B11FA262EB993001AF265 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		840B11FF262ECA78001AF265 /* contacts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = contacts.json; sourceTree = "<group>"; };
 		840B1202262ECC74001AF265 /* JSONReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReader.swift; sourceTree = "<group>"; };
+		840B12072631635D001AF265 /* CallDateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallDateFormat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		840B11B52629CEF5001AF265 /* CallsApp */ = {
 			isa = PBXGroup;
 			children = (
+				840B12062631634C001AF265 /* Extensions */,
 				840B11F9262EB993001AF265 /* ContactStore.swift */,
 				840B11FA262EB993001AF265 /* ContactsViewController.swift */,
 				840B11B62629CEF5001AF265 /* AppDelegate.swift */,
@@ -86,6 +89,14 @@
 				840B1202262ECC74001AF265 /* JSONReader.swift */,
 			);
 			path = CallsApp;
+			sourceTree = "<group>";
+		};
+		840B12062631634C001AF265 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				840B12072631635D001AF265 /* CallDateFormat.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840B12082631635D001AF265 /* CallDateFormat.swift in Sources */,
 				840B1203262ECC74001AF265 /* JSONReader.swift in Sources */,
 				840B11D52629D799001AF265 /* CallCell.swift in Sources */,
 				840B11B72629CEF5001AF265 /* AppDelegate.swift in Sources */,

@@ -3,7 +3,7 @@
         {
             "name": "Martin",
             "source": "mobile",
-            "date": "yesterday",
+            "date": "22/04/2021 7:32",
             "count": 2,
             "isMissed": false,
             "isOutcome": true
@@ -11,7 +11,7 @@
         {
             "name": "Refik",
             "source": "mobile",
-            "date": "yesterday",
+            "date": "21/04/2021 03:42",
             "count": 1,
             "isMissed": false,
             "isOutcome": true
@@ -19,7 +19,7 @@
         {
             "name": "Martin",
             "source": "mobile",
-            "date": "yesterday",
+            "date": "21/04/2021 00:10",
             "count": 1,
             "isMissed": false,
             "isOutcome": false
@@ -27,7 +27,7 @@
         {
             "name": "Galateja",
             "source": "mobile",
-            "date": "yesterday",
+            "date": "20/04/2021 23:45",
             "count": 1,
             "isMissed": true,
             "isOutcome": false
@@ -35,7 +35,7 @@
         {
             "name": "Martin",
             "source": "mobile",
-            "date": "yesterday",
+            "date": "19/04/2021 17:10",
             "count": 2,
             "isMissed": false,
             "isOutcome": true
@@ -43,7 +43,7 @@
         {
             "name": "Refik",
             "source": "mobile",
-            "date": "yesterday",
+            "date": "17/04/2021 11:12",
             "count": 1,
             "isMissed": false,
             "isOutcome": true
@@ -51,7 +51,7 @@
         {
             "name": "Refik",
             "source": "mobile",
-            "date": "wednesday",
+            "date": "15/04/2021 13:12",
             "count": 1,
             "isMissed": false,
             "isOutcome": false
@@ -59,7 +59,7 @@
         {
             "name": "Petya",
             "source": "mobile",
-            "date": "wednesday",
+            "date": "14/04/2021 16:30",
             "count": 1,
             "isMissed": false,
             "isOutcome": true
@@ -67,7 +67,7 @@
         {
             "name": "Martin",
             "source": "FaceTime Audio",
-            "date": "wednesday",
+            "date": "13/04/2021 17:32",
             "count": 3,
             "isMissed": false,
             "isOutcome": false
@@ -75,7 +75,7 @@
         {
             "name": "Martin",
             "source": "FaceTime Audio",
-            "date": "wednesday",
+            "date": "12/04/2021 22:07",
             "count": 1,
             "isMissed": true,
             "isOutcome": false
