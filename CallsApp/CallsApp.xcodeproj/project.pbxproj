@@ -72,7 +72,7 @@
 		840B11B52629CEF5001AF265 /* CallsApp */ = {
 			isa = PBXGroup;
 			children = (
-				840B12062631634C001AF265 /* Extensions */,
+				840B12062631634C001AF265 /* Helpers */,
 				840B11F9262EB993001AF265 /* ContactStore.swift */,
 				840B11FA262EB993001AF265 /* ContactsViewController.swift */,
 				840B11B62629CEF5001AF265 /* AppDelegate.swift */,
@@ -91,12 +91,12 @@
 			path = CallsApp;
 			sourceTree = "<group>";
 		};
-		840B12062631634C001AF265 /* Extensions */ = {
+		840B12062631634C001AF265 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				840B12072631635D001AF265 /* CallDateFormat.swift */,
 			);
-			path = Extensions;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

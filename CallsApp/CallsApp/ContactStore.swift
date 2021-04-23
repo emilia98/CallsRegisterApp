@@ -5,18 +5,26 @@ class Contacts: Decodable {
 }
 
 class ContactStore {
-    /*
-    private var contacts = [
-        "Alex", "Alpin Expert", "Ana Maria", "Anastasija",
-        "Angel Comp", "Anton Kola", "Anton",
-        "Bernar", "Berta"
-    ] */
-    
     private(set) var contacts: [String]
     private var sections = Dictionary<Character, [String]>()
+    /*
+    let contactArchiveURL: URL = {
+        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = documentsDirectories.first!
+        print(documentDirectory)
+        return documentDirectory.appendingPathComponent("calls.json")
+    }()
+ */
     
     init() {
         contacts = [String]()
+        /*
+        do {
+            let data = try Data(contentsOf: contactArchiveURL)
+            let decoder = JSONDecoder()
+        } catch {
+            
+        } */
         let jsonData = JSONReader.readLocalFile(forName: "contacts")
         
         if let data = jsonData, let result: Contacts = JSONReader.parseJSON(jsonData: data) {

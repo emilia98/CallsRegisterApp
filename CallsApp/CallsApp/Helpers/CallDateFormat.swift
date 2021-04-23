@@ -5,12 +5,12 @@ class CallDateFormat {
     private var calendar: Calendar
     private var date: Date
     
-    init(_ dateAsString: String) {
+    init(_ date: Date) {
         now = Date()
         calendar = Calendar.current
         calendar.timeZone = TimeZone(identifier: "UTC")!
-        self.date = Date()
-        self.date = extractDate(dateAsString)
+        self.date = date
+       // self.date = extractDate(dateAsString)
     }
     
     let fullDateAndTimeFormatter: DateFormatter = {

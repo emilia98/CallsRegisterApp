@@ -7,10 +7,18 @@
 
 import Foundation
 
+/*
+ private enum CodingKeys: String, CodingKey {
+       case title
+       case country
+       case updated
+       case podcasts = "results"
+     }
+ */
 class Call: Codable, Equatable {
     var name: String
     var source: String
-    var date: String
+    var date: Date
     var count: Int
     var isMissed: Bool
     var isOutcome: Bool
@@ -22,19 +30,33 @@ class Call: Codable, Equatable {
     }
 }
 
-class Calls: Decodable {
+class Calls: Codable {
     var calls: [Call]
 }
 
 class CallStore {
     private(set) var calls: [Call]
     
+    private let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+        return dateFormatter
+    }()
+    
     init() {
         calls = [Call]()
         let jsonData = JSONReader.readLocalFile(forName: "calls")
         
-        if let data = jsonData, let result: Calls = JSONReader.parseJSON(jsonData: data) {
-            calls = result.calls
+        do {
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .formatted(dateFormatter)
+            if let data = jsonData {
+                let result: Calls = try decoder.decode(Calls.self, from: data)
+                calls = result.calls
+                print(calls.first!.date)
+            }
+        } catch {
+            print("Error decoding calls: \(error)")
         }
     }
     
