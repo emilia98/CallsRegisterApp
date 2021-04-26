@@ -36,6 +36,11 @@ class Calls: Codable {
 
 class CallStore {
     private(set) var calls: [Call]
+    let callArchiveURL: URL = {
+        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = documentsDirectories.first!
+        return documentDirectory.appendingPathComponent("calls.json")
+    }()
     
     private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -45,16 +50,13 @@ class CallStore {
     
     init() {
         calls = [Call]()
-        let jsonData = JSONReader.readLocalFile(forName: "calls")
         
         do {
+            let data = try Data(contentsOf: callArchiveURL)
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .formatted(dateFormatter)
-            if let data = jsonData {
-                let result: Calls = try decoder.decode(Calls.self, from: data)
-                calls = result.calls
-                print(calls.first!.date)
-            }
+            let result: Calls = try decoder.decode(Calls.self, from: data)
+            calls = result.calls
         } catch {
             print("Error decoding calls: \(error)")
         }

@@ -13,7 +13,7 @@
         <scene sceneID="kQv-nA-RY2">
             <objects>
                 <tabBarController id="U3b-cW-z2w" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="y38-pO-rvY">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="y38-pO-rvY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -102,6 +102,7 @@
                     <tabBarItem key="tabBarItem" title="Voicemail" id="9R8-8b-JXv">
                         <imageReference key="image" image="recordingtape" catalog="system" symbolScale="large"/>
                         <imageReference key="largeContentSizeImage" image="recordingtape" catalog="system" symbolScale="large"/>
+                        <imageReference key="selectedImage" image="recordingtape" catalog="system" symbolScale="large"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -230,7 +231,7 @@
                     <navigationItem key="navigationItem" id="HjM-zP-Vpy">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="LPE-W1-0Wy">
-                            <rect key="frame" x="12" y="6" width="2" height="32"/>
+                            <rect key="frame" x="143.5" y="6" width="127" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="All"/>

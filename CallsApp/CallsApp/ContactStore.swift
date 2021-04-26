@@ -1,34 +1,30 @@
 import Foundation
+import UIKit
 
-class Contacts: Decodable {
+class Contacts: Codable {
     var contacts: [String]
 }
 
 class ContactStore {
     private(set) var contacts: [String]
     private var sections = Dictionary<Character, [String]>()
-    /*
+    
     let contactArchiveURL: URL = {
         let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = documentsDirectories.first!
-        print(documentDirectory)
-        return documentDirectory.appendingPathComponent("calls.json")
+        return documentDirectory.appendingPathComponent("contacts.json")
     }()
- */
-    
+
     init() {
         contacts = [String]()
-        /*
+    
         do {
             let data = try Data(contentsOf: contactArchiveURL)
             let decoder = JSONDecoder()
-        } catch {
-            
-        } */
-        let jsonData = JSONReader.readLocalFile(forName: "contacts")
-        
-        if let data = jsonData, let result: Contacts = JSONReader.parseJSON(jsonData: data) {
+            let result: Contacts = try decoder.decode(Contacts.self, from: data)
             contacts = result.contacts
+        } catch {
+            print("Error decoding contacts: \(contacts)")
         }
         
         // Init of dictionary
