@@ -7,6 +7,27 @@
 
 import UIKit
 
+extension UIButton {
+    // https://stackoverflow.com/questions/14523348/how-to-change-the-background-color-of-a-uibutton-while-its-highlighted
+    private func image(withColor color: UIColor) -> UIImage? {
+        let rect = CGRect(x: 0.0, y: 0.0, width: self.bounds.width, height: self.bounds.height)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return image
+    }
+
+    func setBackgroundColor(_ bgColor: UIColor, for state: UIControl.State) {
+        self.setBackgroundImage(image(withColor: bgColor), for: state)
+    }
+}
+
 class ViewController: UIViewController {
     @IBOutlet var callButton: UIButton!
     @IBOutlet var buttonZero: UIButton!
@@ -60,6 +81,7 @@ class ViewController: UIViewController {
             
             if key != "call" {
                 button.addTarget(self, action: #selector(numericButtonPressed(_:)), for: .touchDown)
+                button.setBackgroundColor(UIColor(hex: "#E1E1E1")!, for: .normal)
             }
         }
         
@@ -83,6 +105,8 @@ class ViewController: UIViewController {
             addNumberButton.isHidden = false
             clearSymbolButton.isHidden = false
         }
+        
+        sender.backgroundColor = UIColor(hex: "#8A8A8A")
     }
     
     @objc
