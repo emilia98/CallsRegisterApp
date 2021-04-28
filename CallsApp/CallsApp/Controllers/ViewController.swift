@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIButton {
-    // https://stackoverflow.com/questions/14523348/how-to-change-the-background-color-of-a-uibutton-while-its-highlighted
     private func image(withColor color: UIColor) -> UIImage? {
         let rect = CGRect(x: 0.0, y: 0.0, width: self.bounds.width, height: self.bounds.height)
         UIGraphicsBeginImageContext(rect.size)
