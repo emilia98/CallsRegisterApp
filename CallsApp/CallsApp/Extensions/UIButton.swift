@@ -26,4 +26,22 @@ extension UIButton {
         attributedTextMain.append(attributedTextSecondary)
         self.setAttributedTitle(attributedTextMain, for: [])
     }
+    
+    private func image(withColor color: UIColor) -> UIImage? {
+        let rect = CGRect(x: 0.0, y: 0.0, width: self.bounds.width, height: self.bounds.height)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return image
+    }
+
+    func setBackgroundColor(_ bgColor: UIColor, for state: UIControl.State) {
+        self.setBackgroundImage(image(withColor: bgColor), for: state)
+    }
 }

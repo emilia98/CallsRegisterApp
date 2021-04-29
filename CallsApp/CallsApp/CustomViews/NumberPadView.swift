@@ -32,22 +32,9 @@ class NumberPadView: UIView {
         loadView()
     }
     
-    func loadView(_ nearestNeighbor: UIView? = nil, _ bottom: CGFloat? = nil) {
-        //self.backgroundColor = UIColor.black
+    func loadView() {
         self.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        /*
-        if let neighbor = nearestNeighbor {
-            // print(neighbor.topAnchor, self.bottomAnchor, "HERE")
-            // self.bottomAnchor.constraint(equalTo: neighbor.topAnchor, constant: 30).isActive = true
-            neighbor.topAnchor.constraint(equalTo: self.bottomAnchor, constant: 50).isActive = true
-        } */
-        
-        NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 400)
-        ])
-        
+        self.heightAnchor.constraint(equalToConstant: 400).isActive = true
         loadSubviews()
     }
     
@@ -92,9 +79,6 @@ class NumberPadView: UIView {
         NSLayoutConstraint.activate([
             buttonZero.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             buttonZero.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            // buttonHashtag.topAnchor.constraint(equalTo: buttonZero.topAnchor),
-            // buttonHashtag.bottomAnchor.constraint(equalTo: buttonZero.bottomAnchor)
-            // buttonAsterisk.topAnchor.constaint(equalTo: )
             buttonZero.leadingAnchor.constraint(equalTo: buttonAsterisk.trailingAnchor, constant: 30),
             buttonHashtag.leadingAnchor.constraint(equalTo: buttonZero.trailingAnchor, constant: 30),
             buttonHashtag.centerYAnchor.constraint(equalTo: buttonZero.centerYAnchor),

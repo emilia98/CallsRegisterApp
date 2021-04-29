@@ -23,7 +23,6 @@
 		84774F3826393F8C00F3E48D /* DialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84774F3726393F8C00F3E48D /* DialViewController.swift */; };
 		84774F3B263959DA00F3E48D /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84774F3A263959DA00F3E48D /* UIButton.swift */; };
 		84774F3F26395E6000F3E48D /* NumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84774F3E26395E6000F3E48D /* NumberPadView.swift */; };
-		84774F432639BD5D00F3E48D /* KeypadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84774F422639BD5D00F3E48D /* KeypadViewController.swift */; };
 		847F7B252636B1DC00CE93AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847F7B242636B1DC00CE93AF /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +45,6 @@
 		84774F3726393F8C00F3E48D /* DialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialViewController.swift; sourceTree = "<group>"; };
 		84774F3A263959DA00F3E48D /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		84774F3E26395E6000F3E48D /* NumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPadView.swift; sourceTree = "<group>"; };
-		84774F422639BD5D00F3E48D /* KeypadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadViewController.swift; sourceTree = "<group>"; };
 		847F7B242636B1DC00CE93AF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,7 +120,6 @@
 				840B11FA262EB993001AF265 /* ContactsViewController.swift */,
 				840B11CB2629CF3E001AF265 /* CallsViewController.swift */,
 				84774F3726393F8C00F3E48D /* DialViewController.swift */,
-				84774F422639BD5D00F3E48D /* KeypadViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -208,7 +205,6 @@
 			files = (
 				840B12082631635D001AF265 /* CallDateFormat.swift in Sources */,
 				840B11D52629D799001AF265 /* CallCell.swift in Sources */,
-				84774F432639BD5D00F3E48D /* KeypadViewController.swift in Sources */,
 				840B11B72629CEF5001AF265 /* AppDelegate.swift in Sources */,
 				847F7B252636B1DC00CE93AF /* ViewController.swift in Sources */,
 				840B11CF2629CF77001AF265 /* CallStore.swift in Sources */,

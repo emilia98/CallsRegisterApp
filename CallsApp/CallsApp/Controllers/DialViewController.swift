@@ -1,7 +1,5 @@
 import UIKit
 
-
-
 class DialViewController: UIViewController {
     @IBOutlet var endCall: UIButton!
     @IBOutlet var callerView: UIView!
@@ -13,14 +11,13 @@ class DialViewController: UIViewController {
     @IBOutlet var contactsButton: UIButton!
     @IBOutlet var buttonsView: UIView!
     @IBOutlet var hideKeypadButton: UIButton!
+    
     var numberPadView: NumberPadView? = nil
     var dialLabelView: UIView!
     var dialLabel: UILabel!
     var buttons: [String: UIButton] = [:]
     var zeroPressingTimer = Timer()
     var seconds = 0.0
-    
-   // var buttons: [UIButton] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,9 +127,6 @@ class DialViewController: UIViewController {
             dialLabelView.isHidden = false
             callerView.isHidden = true
         }
-        
-        // sender.backgroundColor = UIColor(hex: "#8A8A8A")
- 
     }
 
     @objc
