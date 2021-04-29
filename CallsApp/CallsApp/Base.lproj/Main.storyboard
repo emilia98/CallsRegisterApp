@@ -377,10 +377,10 @@
             </objects>
             <point key="canvasLocation" x="-3884.057971014493" y="-346.20535714285711"/>
         </scene>
-        <!--Dial View Controller-->
+        <!--Keypad View Controller-->
         <scene sceneID="lib-lS-4Of">
             <objects>
-                <viewController id="wij-6A-Jdb" customClass="DialViewController" customModule="CallsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wij-6A-Jdb" customClass="KeypadViewController" customModule="CallsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZZv-PZ-EGU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -634,7 +634,7 @@
         <!--Keypad-->
         <scene sceneID="hYW-VY-hMC">
             <objects>
-                <viewController id="6WT-Oo-4Mz" customClass="ViewController" customModule="CallsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6WT-Oo-4Mz" customClass="DialViewController" customModule="CallsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9VI-H4-H5x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
