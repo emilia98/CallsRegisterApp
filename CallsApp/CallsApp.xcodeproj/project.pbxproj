@@ -22,6 +22,8 @@
 		840B12A3263607EE001AF265 /* Capabilites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 840B12A2263607EE001AF265 /* Capabilites.plist */; };
 		84774F3826393F8C00F3E48D /* DialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84774F3726393F8C00F3E48D /* DialViewController.swift */; };
 		84774F3B263959DA00F3E48D /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84774F3A263959DA00F3E48D /* UIButton.swift */; };
+		84774F3F26395E6000F3E48D /* NumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84774F3E26395E6000F3E48D /* NumberPadView.swift */; };
+		84774F432639BD5D00F3E48D /* KeypadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84774F422639BD5D00F3E48D /* KeypadViewController.swift */; };
 		847F7B252636B1DC00CE93AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847F7B242636B1DC00CE93AF /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		840B12A2263607EE001AF265 /* Capabilites.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Capabilites.plist; sourceTree = "<group>"; };
 		84774F3726393F8C00F3E48D /* DialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialViewController.swift; sourceTree = "<group>"; };
 		84774F3A263959DA00F3E48D /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		84774F3E26395E6000F3E48D /* NumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPadView.swift; sourceTree = "<group>"; };
+		84774F422639BD5D00F3E48D /* KeypadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadViewController.swift; sourceTree = "<group>"; };
 		847F7B242636B1DC00CE93AF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +89,7 @@
 		840B11B52629CEF5001AF265 /* CallsApp */ = {
 			isa = PBXGroup;
 			children = (
+				84774F3D26395E3A00F3E48D /* CustomViews */,
 				8406883D2637451700DDF1B8 /* Extensions */,
 				840B12A726369635001AF265 /* Controllers */,
 				840B12062631634C001AF265 /* Helpers */,
@@ -117,8 +122,17 @@
 				840B11FA262EB993001AF265 /* ContactsViewController.swift */,
 				840B11CB2629CF3E001AF265 /* CallsViewController.swift */,
 				84774F3726393F8C00F3E48D /* DialViewController.swift */,
+				84774F422639BD5D00F3E48D /* KeypadViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		84774F3D26395E3A00F3E48D /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				84774F3E26395E6000F3E48D /* NumberPadView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +208,7 @@
 			files = (
 				840B12082631635D001AF265 /* CallDateFormat.swift in Sources */,
 				840B11D52629D799001AF265 /* CallCell.swift in Sources */,
+				84774F432639BD5D00F3E48D /* KeypadViewController.swift in Sources */,
 				840B11B72629CEF5001AF265 /* AppDelegate.swift in Sources */,
 				847F7B252636B1DC00CE93AF /* ViewController.swift in Sources */,
 				840B11CF2629CF77001AF265 /* CallStore.swift in Sources */,
@@ -203,6 +218,7 @@
 				840B11FB262EB993001AF265 /* ContactStore.swift in Sources */,
 				840B11B92629CEF5001AF265 /* SceneDelegate.swift in Sources */,
 				8406883F2637454F00DDF1B8 /* UIColor.swift in Sources */,
+				84774F3F26395E6000F3E48D /* NumberPadView.swift in Sources */,
 				84774F3B263959DA00F3E48D /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

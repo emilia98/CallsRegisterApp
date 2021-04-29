@@ -29,6 +29,7 @@ extension UIButton {
 
 class ViewController: UIViewController {
     @IBOutlet var callButton: UIButton!
+    /*
     @IBOutlet var buttonZero: UIButton!
     @IBOutlet var hashtagButton: UIButton!
     @IBOutlet var asteriskButton: UIButton!
@@ -41,15 +42,20 @@ class ViewController: UIViewController {
     @IBOutlet var buttonSix: UIButton!
     @IBOutlet var buttonSeven: UIButton!
     @IBOutlet var buttonEight: UIButton!
+ */
     @IBOutlet var numberLabel: UILabel!
     @IBOutlet var addNumberButton: UIButton!
     @IBOutlet var clearSymbolButton: UIButton!
-    
-    private var buttons: [ String: (attributed: Bool, mainText: String?, secondaryText: String?, target: UIButton)] = [:]
+    var numberPadView: NumberPadView? = nil
+    var buttons: [String: UIButton] = [:]
+    var zeroPressingTimer = Timer()
+    var seconds = 0.0
+    // private var buttons: [ String: (attributed: Bool, mainText: String?, secondaryText: String?, target: UIButton)] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        /*
         self.buttons = [
             "call": (attributed: false, mainText: nil, secondaryText: nil, target: callButton),
             "0": (attributed: true, mainText: "0", secondaryText: "+", target: buttonZero),
@@ -64,10 +70,28 @@ class ViewController: UIViewController {
             "7": (attributed: true, mainText: "7", secondaryText: "P Q R S", target: buttonSeven),
             "8": (attributed: true, mainText: "8", secondaryText: "T U V", target: buttonEight),
             "9": (attributed: true, mainText: "9", secondaryText: "W X Y Z", target: buttonNine)
-        ]
+        ] */
         
         callButton.imageView?.contentMode = .scaleAspectFit
+        callButton.setCircleButton()
         
+        // initDialViewLabel()
+        
+        numberPadView = NumberPadView.init()
+        numberPadView?.loadView()
+        
+        
+        view.addSubview(numberPadView!)
+        
+        NSLayoutConstraint.activate([
+            numberPadView!.topAnchor.constraint(equalTo: addNumberButton.bottomAnchor, constant: 20),
+            callButton.topAnchor.constraint(equalTo: numberPadView!.bottomAnchor, constant: 30),
+            numberPadView!.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            numberPadView!.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        buttons = numberPadView!.getButtons()
+        addKeypadButtonsTargets()
+        /*
         for key in buttons.keys {
             let button = buttons[key]!.target
             shapeButton(button)
@@ -80,9 +104,9 @@ class ViewController: UIViewController {
             
             if key != "call" {
                 button.addTarget(self, action: #selector(numericButtonPressed(_:)), for: .touchDown)
-                button.setBackgroundColor(UIColor(hex: "#E1E1E1")!, for: .normal)
+                
             }
-        }
+        } */
         
         numberLabel.text = ""
         addNumberButton.isHidden = true
@@ -108,6 +132,39 @@ class ViewController: UIViewController {
         sender.backgroundColor = UIColor(hex: "#8A8A8A")
     }
     
+    private func addKeypadButtonsTargets() {
+        buttons.forEach { (key, button) in
+            button.setBackgroundColor(UIColor(hex: "#E1E1E1")!, for: .normal)
+            
+            if key == "0" {
+                button.addTarget(self, action: #selector(zeroButtonPressed(_:)), for: .touchDown)
+                button.addTarget(self, action: #selector(zeroButtonReleased(_:)), for: [.touchUpInside, .touchUpOutside])
+                return
+            }
+            button.addTarget(self, action: #selector(numericButtonPressed(_:)), for: .touchDown)
+        }
+    }
+    
+    @objc
+    func zeroButtonPressed(_ sender: UIButton) {
+        sender.backgroundColor = UIColor(hex: "#8A8A8A")
+        
+        zeroPressingTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc
+    func zeroButtonReleased(_ sender: UIButton) {
+        zeroPressingTimer.invalidate()
+        let text = seconds >= 1 ? "+" : "0"
+        numberLabel.text = "\(numberLabel.text!)\(text)"
+        seconds = 0
+    }
+    
+    @objc
+    func updateTimer() {
+        seconds = seconds + 0.01
+    }
+
     @objc
     func clearSymbolButtonPressed(_ sender: UIButton) {
         numberLabel.text?.removeLast()
@@ -118,11 +175,13 @@ class ViewController: UIViewController {
         }
     }
     
+    /*
     private func shapeButton(_ button: UIButton) {
         button.clipsToBounds = true
         button.layer.cornerRadius = callButton.bounds.size.width * 0.5
     }
-    
+    */
+    /*
     private func formatAttributedString(_ key: String, _ fontSecondary: CGFloat = 10, _ spacing: CGFloat = -3) {
         if !buttons[key]!.attributed {
             return
@@ -148,7 +207,7 @@ class ViewController: UIViewController {
         
         attributedTextMain.append(attributedTextSecondary)
         button.setAttributedTitle(attributedTextMain, for: [])
-    }
+    } */
     
     private func styleClearButton() {
         let image = UIImage(systemName: "delete.left.fill")
