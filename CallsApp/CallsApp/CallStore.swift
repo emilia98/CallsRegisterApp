@@ -7,14 +7,6 @@
 
 import Foundation
 
-/*
- private enum CodingKeys: String, CodingKey {
-       case title
-       case country
-       case updated
-       case podcasts = "results"
-     }
- */
 class Call: Codable, Equatable {
     var name: String
     var source: String
@@ -22,6 +14,15 @@ class Call: Codable, Equatable {
     var count: Int
     var isMissed: Bool
     var isOutcome: Bool
+    
+    init(_ name: String, _ source: String, _ date: Date) {
+        self.name = name
+        self.source = source
+        self.date = date
+        self.count = 1
+        self.isMissed = false
+        self.isOutcome = true
+    }
     
     static func ==(lhs: Call, rhs: Call) -> Bool {
         return lhs.name == rhs.name && lhs.source == rhs.source

@@ -339,11 +339,12 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="profileButton" destination="LA6-1x-Yqr" id="i6Q-yE-XOr"/>
+                        <segue destination="wij-6A-Jdb" kind="presentation" identifier="DialViewController" modalPresentationStyle="fullScreen" id="FkV-Tx-HBR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fI4-JH-QIx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2973.913043478261" y="-346.20535714285711"/>
+            <point key="canvasLocation" x="-3007" y="-313"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BAw-Up-JP4">
@@ -377,10 +378,10 @@
             </objects>
             <point key="canvasLocation" x="-3884.057971014493" y="-346.20535714285711"/>
         </scene>
-        <!--Keypad View Controller-->
+        <!--Dial View Controller-->
         <scene sceneID="lib-lS-4Of">
             <objects>
-                <viewController id="wij-6A-Jdb" customClass="KeypadViewController" customModule="CallsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wij-6A-Jdb" customClass="DialViewController" customModule="CallsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZZv-PZ-EGU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -602,6 +603,11 @@
                                     <constraint firstAttribute="width" constant="374" id="zAE-Ww-4OC"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FJs-5q-9Na" customClass="NumberPadView" customModule="CallsApp" customModuleProvider="target">
+                                <rect key="frame" x="99" y="198" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="M6t-Yc-1Dj"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -614,9 +620,11 @@
                             <constraint firstItem="M6t-Yc-1Dj" firstAttribute="bottom" secondItem="YQZ-pa-xEW" secondAttribute="bottom" constant="50" id="cqb-WZ-dit"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="8VL-6i-lIi"/>
                     <connections>
                         <outlet property="addCallButton" destination="1WX-Cz-HEL" id="dWC-sc-0f9"/>
                         <outlet property="buttonsView" destination="7DI-3h-jed" id="Dc3-T9-QBU"/>
+                        <outlet property="callTypeLabel" destination="a0c-Y1-Fia" id="aWo-sW-8XA"/>
                         <outlet property="callerView" destination="6FN-Qi-Cwn" id="Zfw-vQ-OGV"/>
                         <outlet property="contactsButton" destination="gr1-71-CFB" id="XQT-qY-Zqq"/>
                         <outlet property="endCall" destination="UYL-GU-Iqi" id="PAt-Qf-D5P"/>
@@ -624,17 +632,19 @@
                         <outlet property="hideKeypadButton" destination="np1-zg-J0Z" id="e06-bQ-5gf"/>
                         <outlet property="keypadButton" destination="SZ7-14-e6l" id="697-bk-JHx"/>
                         <outlet property="muteButton" destination="tqh-bv-pOT" id="ksq-WI-pIR"/>
+                        <outlet property="nameLabel" destination="s4A-Cr-ico" id="R2N-pA-lsj"/>
+                        <outlet property="numberPadView" destination="FJs-5q-9Na" id="ge8-1p-fYz"/>
                         <outlet property="speakersButton" destination="VJf-3V-Kgj" id="gIK-oX-XxK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7S0-xY-Otx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2910.144927536232" y="555.80357142857144"/>
+            <point key="canvasLocation" x="-3330.434782608696" y="547.76785714285711"/>
         </scene>
         <!--Keypad-->
         <scene sceneID="hYW-VY-hMC">
             <objects>
-                <viewController id="6WT-Oo-4Mz" customClass="DialViewController" customModule="CallsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6WT-Oo-4Mz" customClass="KeypadViewController" customModule="CallsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9VI-H4-H5x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -680,6 +690,11 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23" scale="medium" weight="regular"/>
                                 </state>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TTX-e9-DHg" customClass="NumberPadView" customModule="CallsApp" customModuleProvider="target">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UmC-YU-BEs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -701,6 +716,8 @@
                         <outlet property="callButton" destination="eRa-uq-nko" id="oZK-Ca-wZt"/>
                         <outlet property="clearSymbolButton" destination="4va-hc-Ogj" id="GOG-yV-Qrq"/>
                         <outlet property="numberLabel" destination="JB3-zZ-ffq" id="qYv-dW-egq"/>
+                        <outlet property="numberPadView" destination="TTX-e9-DHg" id="KjQ-uv-9G4"/>
+                        <segue destination="wij-6A-Jdb" kind="presentation" identifier="DialViewController" modalPresentationStyle="fullScreen" id="xKo-g2-qEs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CtO-il-Rle" sceneMemberID="firstResponder"/>
@@ -708,6 +725,9 @@
             <point key="canvasLocation" x="-1807.2463768115942" y="548.4375"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="FkV-Tx-HBR"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="circle.grid.3x3.fill" catalog="system" width="128" height="112"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>

@@ -4,6 +4,7 @@ class ConstactsViewController : UITableViewController {
     @IBOutlet var profileButton: UIButton!
     var contactStore = ContactStore()
     var sections = [Character]()
+    private let callSources = ["mobile", "FaceTime audio", "FaceTime video"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,26 @@ class ConstactsViewController : UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return contactStore.sectionsCount
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        self.performSegue(withIdentifier: "DialViewController", sender: cell)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DialViewController" {
+            if let cell = sender as? UITableViewCell {
+                let indexPath = self.tableView.indexPath(for: cell)!
+                let section = sections[indexPath.section]
+                let contactName = contactStore.getCertainContact(section, indexPath.row)
+                let dialViewController = segue.destination as! DialViewController
+                
+                dialViewController.name = contactName
+                dialViewController.source = callSources.randomElement()!
+            }
+        }
+    }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
