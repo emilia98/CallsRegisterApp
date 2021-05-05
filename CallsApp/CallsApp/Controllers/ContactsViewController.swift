@@ -55,9 +55,10 @@ class ConstactsViewController : UITableViewController {
                 dialViewController.name = contactName
                 dialViewController.source = callSources.randomElement()!
             }
+        } else {
+            preconditionFailure("Unexpected segue identifier.")
         }
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)

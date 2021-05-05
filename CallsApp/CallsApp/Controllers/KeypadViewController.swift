@@ -28,8 +28,14 @@ class KeypadViewController: UIViewController {
         numberLabel.text = ""
         addNumberButton.isHidden = true
         clearSymbolButton.isHidden = true
-        clearSymbolButton.addTarget(self, action: #selector(clearSymbolButtonPressed(_:)), for: .touchDown)
+        clearSymbolButton.addTarget(self,
+                                    action: #selector(clearSymbolButtonPressed(_:)),
+                                    for: .touchDown)
         styleClearButton()
+        
+        callButton.addTarget(self,
+                             action: #selector(callButtonPressed(_:)),
+                             for: .touchDown)
     }
     
     @objc
@@ -112,5 +118,23 @@ class KeypadViewController: UIViewController {
         imageView.leadingAnchor.constraint(equalTo: clearSymbolButton.leadingAnchor).isActive = true
         imageView.topAnchor.constraint(equalTo: clearSymbolButton.topAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: clearSymbolButton.centerYAnchor).isActive = true
+    }
+    
+    @objc
+    func callButtonPressed(_ sender: UIButton) {
+        if numberLabel!.text!.isEmpty {
+            return
+        }
+        self.performSegue(withIdentifier: "DialViewController", sender: sender)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DialViewController" {
+            let dialViewController = segue.destination as! DialViewController
+            dialViewController.name = numberLabel.text!
+            dialViewController.source = "mobile"
+        } else {
+            preconditionFailure("Unexpected segue identifier.")
+        }
     }
 }
