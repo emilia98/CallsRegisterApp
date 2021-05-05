@@ -4,7 +4,7 @@ class ConstactsViewController : UITableViewController {
     @IBOutlet var profileButton: UIButton!
     var contactStore = ContactStore()
     var sections = [Character]()
-    private let callSources = ["mobile", "FaceTime audio", "FaceTime video"]
+    private let callSources = ["mobile", "FaceTime Audio", "FaceTime Video"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -24,6 +24,10 @@ class DialViewController: UIViewController {
     var zeroPressingTimer = Timer()
     private var isLongPressed = false
     
+    private var callDurationTimer = Timer()
+    private var callDurationSeconds = 0
+    private var hasCallStarted = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,6 +58,10 @@ class DialViewController: UIViewController {
         endCall.addTarget(self,
                           action: #selector(endCallButtonPressed(_:)),
                           for: .touchDown)
+        
+        callDurationTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(callDurationTimerUpdate), userInfo: nil, repeats: true)
+        
+        // zeroPressingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: false)
     }
     
     @objc
@@ -152,12 +160,36 @@ class DialViewController: UIViewController {
     }
     
     @objc
+    func callDurationTimerUpdate() {
+        if !hasCallStarted {
+            if callDurationSeconds == 2 {
+                callDurationTimer.invalidate()
+                hasCallStarted = true
+                callTypeLabel.text = "00:00"
+                callDurationSeconds = 0
+                callDurationTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(callDurationTimerUpdate), userInfo: nil, repeats: true)
+            }
+        } else {
+            let minutes = callDurationSeconds / 60
+            let seconds = callDurationSeconds % 60
+            
+            callTypeLabel.text = "\(padLeft(minutes)):\(padLeft(seconds))"
+        }
+        callDurationSeconds += 1
+    }
+    
+    func padLeft(_ value: Int) -> String{
+        return "\(value < 10 ? "0" : "")\(value)"
+    }
+    
+    @objc
     func updateTimer() {
         isLongPressed = true
     }
     
     @objc
     func endCallButtonPressed(_ sender: UIButton) {
+        callDurationTimer.invalidate()
         self.dismiss(animated: true, completion: nil)
     }
 }
