@@ -7,8 +7,8 @@ class KeypadViewController: UIViewController {
     @IBOutlet var clearSymbolButton: UIButton!
     @IBOutlet var numberPadView: NumberPadView!
     var buttons: [String: UIButton] = [:]
-    var zeroPressingTimer = Timer()
-    var seconds = 0.0
+    private var zeroPressingTimer = Timer()
+    private var isLongPressed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,20 +72,22 @@ class KeypadViewController: UIViewController {
     func zeroButtonPressed(_ sender: UIButton) {
         sender.backgroundColor = UIColor(hex: "#8A8A8A")
         
-        zeroPressingTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        zeroPressingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: false)
     }
     
     @objc
     func zeroButtonReleased(_ sender: UIButton) {
         zeroPressingTimer.invalidate()
-        let text = seconds >= 1 ? "+" : "0"
+        let text = isLongPressed ? "+" : "0"
         numberLabel.text = "\(numberLabel.text!)\(text)"
-        seconds = 0
+        isLongPressed = false
+        addNumberButton.isHidden = false
+        clearSymbolButton.isHidden = false
     }
     
     @objc
     func updateTimer() {
-        seconds = seconds + 0.01
+        isLongPressed = true
     }
 
     @objc
