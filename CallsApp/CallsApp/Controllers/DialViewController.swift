@@ -42,12 +42,18 @@ class DialViewController: UIViewController {
         numberPadView.backgroundColor = view.backgroundColor
         initDialViewLabel()
         
+        NSLayoutConstraint.activate([
+            endCall.topAnchor.constraint(equalTo: numberPadView!.bottomAnchor, constant: 50),
+            numberPadView!.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            numberPadView!.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        
         callerView.isHidden = false
         dialLabelView.isHidden = true
         hideKeypadButton.isHidden = true
         numberPadView?.isHidden = true
         
-        keypadButton.addTarget(self, action: #selector(hideButtonsView(_:)), for: .touchUpInside)
+        keypadButton.addTarget(self, action: #selector(showKeyboardPad(_:)), for: .touchUpInside)
         hideKeypadButton.addTarget(self, action: #selector(hideKeyboardPad(_:)), for: .touchDown)
         
         endCall.addTarget(self,
@@ -58,16 +64,15 @@ class DialViewController: UIViewController {
     }
     
     @objc
-    func hideButtonsView(_ sender: UIButton) {
+    func showKeyboardPad(_ sender: UIButton) {
         buttonsView.isHidden = true
         hideKeypadButton.isHidden = false
         numberPadView?.isHidden = false
         
-        NSLayoutConstraint.activate([
-            endCall.topAnchor.constraint(equalTo: numberPadView!.bottomAnchor, constant: 50),
-            numberPadView!.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            numberPadView!.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
+        if !dialLabel.text!.isEmpty {
+            callerView.isHidden = true
+            dialLabelView.isHidden = false
+        }
     }
     
     @objc
@@ -76,8 +81,6 @@ class DialViewController: UIViewController {
         hideKeypadButton.isHidden = true
         callerView.isHidden = false
         dialLabelView.isHidden = true
-        
-        dialLabel.text = ""
         
         if let numberPad = numberPadView {
             numberPad.isHidden = true
@@ -137,7 +140,6 @@ class DialViewController: UIViewController {
     
     @IBAction private func numberPadButtonPressed(_ sender: NumberPadView) {
         let text = sender.lastCharacterPressed
-        print("text")
         dialLabel.text = "\(dialLabel.text!)\(text)"
         
         if !dialLabel.text!.isEmpty {
