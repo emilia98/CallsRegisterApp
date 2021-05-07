@@ -607,6 +607,9 @@
                                 <rect key="frame" x="99" y="198" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <action selector="numberPadButtonPressed:" destination="wij-6A-Jdb" eventType="valueChanged" id="YeF-gB-XPe"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="M6t-Yc-1Dj"/>

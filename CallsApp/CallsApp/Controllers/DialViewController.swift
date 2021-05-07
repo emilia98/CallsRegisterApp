@@ -20,9 +20,6 @@ class DialViewController: UIViewController {
     
     var dialLabelView: UIView!
     var dialLabel: UILabel!
-    var buttons: [String: UIButton] = [:]
-    var zeroPressingTimer = Timer()
-    private var isLongPressed = false
     
     private var callDurationTimer = Timer()
     private var callDurationSeconds = 0
@@ -44,8 +41,6 @@ class DialViewController: UIViewController {
         
         numberPadView.backgroundColor = view.backgroundColor
         initDialViewLabel()
-        buttons = numberPadView!.getButtons()
-        addKeypadButtonsTargets()
         
         callerView.isHidden = false
         dialLabelView.isHidden = true
@@ -60,8 +55,6 @@ class DialViewController: UIViewController {
                           for: .touchDown)
         
         callDurationTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(callDurationTimerUpdate), userInfo: nil, repeats: true)
-        
-        // zeroPressingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: false)
     }
     
     @objc
@@ -88,17 +81,6 @@ class DialViewController: UIViewController {
         
         if let numberPad = numberPadView {
             numberPad.isHidden = true
-        }
-    }
-    
-    private func addKeypadButtonsTargets() {
-        buttons.forEach { (key, button) in
-            if key == "0" {
-                button.addTarget(self, action: #selector(zeroButtonPressed(_:)), for: .touchDown)
-                button.addTarget(self, action: #selector(zeroButtonReleased(_:)), for: [.touchUpInside, .touchUpOutside])
-                return
-            }
-            button.addTarget(self, action: #selector(numericButtonPressed(_:)), for: .touchDown)
         }
     }
     
@@ -131,35 +113,6 @@ class DialViewController: UIViewController {
     }
     
     @objc
-    func numericButtonPressed(_ sender: UIButton) {
-        let buttonText = sender.titleLabel?.text
-        var text: String! = buttonText?.components(separatedBy: "\n")[0]
-        
-        if text == "﹡" {
-            text = "*"
-        }
-        dialLabel.text = "\(dialLabel.text!)\(text!)"
-        
-        if !dialLabel.text!.isEmpty {
-            dialLabelView.isHidden = false
-            callerView.isHidden = true
-        }
-    }
-
-    @objc
-    func zeroButtonPressed(_ sender: UIButton) {
-        zeroPressingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: false)
-    }
-    
-    @objc
-    func zeroButtonReleased(_ sender: UIButton) {
-        zeroPressingTimer.invalidate()
-        let text = isLongPressed ? "+" : "0"
-        dialLabel.text = "\(dialLabel.text!)\(text)"
-        isLongPressed = false
-    }
-    
-    @objc
     func callDurationTimerUpdate() {
         if !hasCallStarted {
             if callDurationSeconds == 2 {
@@ -182,9 +135,15 @@ class DialViewController: UIViewController {
         return "\(value < 10 ? "0" : "")\(value)"
     }
     
-    @objc
-    func updateTimer() {
-        isLongPressed = true
+    @IBAction private func numberPadButtonPressed(_ sender: NumberPadView) {
+        let text = sender.lastCharacterPressed
+        print("text")
+        dialLabel.text = "\(dialLabel.text!)\(text)"
+        
+        if !dialLabel.text!.isEmpty {
+            dialLabelView.isHidden = false
+            callerView.isHidden = true
+        }
     }
     
     @objc
