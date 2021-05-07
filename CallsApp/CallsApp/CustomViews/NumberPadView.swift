@@ -164,14 +164,6 @@ class NumberPadView: UIControl {
         
         lastCharacterPressed = text!
         sendActions(for: .valueChanged)
-        /*
-        numberLabel.text = "\(numberLabel.text!)\(text!)"
-        
-        if !numberLabel.text!.isEmpty {
-            addNumberButton.isHidden = false
-            clearSymbolButton.isHidden = false
-        } */
-        
         sender.backgroundColor = UIColor(hex: "#8A8A8A")
     }
     
@@ -187,11 +179,8 @@ class NumberPadView: UIControl {
         zeroPressingTimer.invalidate()
         let text = isLongPressed ? "+" : "0"
         lastCharacterPressed = text
-       // numberLabel.text = "\(numberLabel.text!)\(text)"
         isLongPressed = false
         sendActions(for: .valueChanged)
-       // addNumberButton.isHidden = false
-       // clearSymbolButton.isHidden = false
     }
     
     @objc

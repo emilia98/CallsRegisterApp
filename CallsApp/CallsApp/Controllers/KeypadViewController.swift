@@ -36,6 +36,11 @@ class KeypadViewController: UIViewController {
     @IBAction private func numberPadButtonPressed(_ sender: NumberPadView) {
         let text = sender.lastCharacterPressed
         numberLabel.text = "\(numberLabel.text!)\(text)"
+        
+        if !numberLabel.text!.isEmpty {
+            addNumberButton.isHidden = false
+            clearSymbolButton.isHidden = false
+        }
     }
 
     @objc
