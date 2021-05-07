@@ -1,6 +1,6 @@
 import UIKit
 
-class NumberPadView: UIView {
+class NumberPadView: UIControl {
     var buttons: [String: (secondaryText: String?, target: UIButton?)] = [
         "﹡": (secondaryText: nil, target: nil),
         "0": (secondaryText: "+", target: nil),
@@ -16,6 +16,10 @@ class NumberPadView: UIView {
         "3": (secondaryText: "D E F", target: nil)
     ]
     var lightGrey: UIColor = UIColor(hex: "#E1E1E1")!
+    var lastCharacterPressed = ""
+    
+    private var zeroPressingTimer = Timer()
+    private var isLongPressed = false
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -66,7 +70,7 @@ class NumberPadView: UIView {
             buttons[title]!.target = button
             button.setCircleButton()
         }
-        
+        addKeypadButtonsTargets()
         subviewsContrainsts()
     }
     
@@ -125,6 +129,7 @@ class NumberPadView: UIView {
         ])
     }
     
+    
     func getButtons() -> [String: UIButton] {
         var result: [String: UIButton] = [:]
         for (title, button) in buttons {
@@ -132,5 +137,65 @@ class NumberPadView: UIView {
         }
         
         return result
+    }
+    
+    
+    private func addKeypadButtonsTargets() {
+        buttons.forEach { (key, buttonTarget) in
+            let button = buttonTarget.target!
+            button.setBackgroundColor(UIColor(hex: "#E1E1E1")!, for: .normal)
+            
+            if key == "0" {
+                button.addTarget(self, action: #selector(zeroButtonPressed(_:)), for: .touchDown)
+                button.addTarget(self, action: #selector(zeroButtonReleased(_:)), for: [.touchUpInside, .touchUpOutside])
+                return
+            }
+            button.addTarget(self, action: #selector(numericButtonPressed(_:)), for: .touchDown)
+        }
+    }
+    
+    @objc
+    func numericButtonPressed(_ sender: UIButton) {
+        let buttonText = sender.titleLabel?.text
+        var text = buttonText?.components(separatedBy: "\n")[0]
+        if text == "﹡" {
+            text = "*"
+        }
+        
+        lastCharacterPressed = text!
+        sendActions(for: .valueChanged)
+        /*
+        numberLabel.text = "\(numberLabel.text!)\(text!)"
+        
+        if !numberLabel.text!.isEmpty {
+            addNumberButton.isHidden = false
+            clearSymbolButton.isHidden = false
+        } */
+        
+        sender.backgroundColor = UIColor(hex: "#8A8A8A")
+    }
+    
+    @objc
+    func zeroButtonPressed(_ sender: UIButton) {
+        sender.backgroundColor = UIColor(hex: "#8A8A8A")
+        
+        zeroPressingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: false)
+    }
+    
+    @objc
+    func zeroButtonReleased(_ sender: UIButton) {
+        zeroPressingTimer.invalidate()
+        let text = isLongPressed ? "+" : "0"
+        lastCharacterPressed = text
+       // numberLabel.text = "\(numberLabel.text!)\(text)"
+        isLongPressed = false
+        sendActions(for: .valueChanged)
+       // addNumberButton.isHidden = false
+       // clearSymbolButton.isHidden = false
+    }
+    
+    @objc
+    func updateTimer() {
+        isLongPressed = true
     }
 }
